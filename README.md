@@ -1,4 +1,5 @@
 # cliniq
 
 --
-TEST
+
+README
