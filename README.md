@@ -1,5 +1,5 @@
 # cliniq
 
---
+For every new package run bellow command in root directory:
 
-README
+`pip install -e .`
