@@ -13,23 +13,41 @@ logger = get_logger(__name__)
 def load_books():
   try:
     if not os.path.exists(config["DATA_PATH"]):
-      raise CustomException("Invalid data path")
+      raise CustomException("invalid data path")
 
-    logger.info(f"Loading books from {config["DATA_PATH"]}")
+    logger.info(f"loading books from {config["DATA_PATH"]}")
     loader = DirectoryLoader(config["DATA_PATH"], glob="*.pdf", loader_cls=PyPDFLoader)
-    documents = loader.load()
+    pdfs = loader.load()
 
-    if not documents:
-      logger.warning(f"No books in {config["DATA_PATH"]} exist")
+    if not pdfs:
+      logger.warning(f"no books in {config["DATA_PATH"]} exist")
     else:
-      logger.info(f"successfully loaded {len(documents)} books")
+      logger.info(f"successfully loaded {len(pdfs)} books")
 
-    return documents
+    return pdfs
 
   except Exception as e:
-    logger.error(str(CustomException("Failed to read books", e)))
+    logger.error(str(CustomException("failed to read books", e)))
     return
 
 
+
+def create_text_chunks(pdfs):
+  try:
+    if not pdfs:
+      raise CustomException("no books")
+
+    logger.info(f"splitting {len(pdfs)} pdfs into chunks")
+
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=config["CHUNK_SIZE"], chunk_overlap=config["CHUNK_OVERLAP"])
+    text_chunks = text_splitter.split_documents(pdfs)
+
+    logger.info(f"generated {len(text_chunks)} chunks")
+    
+    return text_chunks
+
+  except Exception as e:
+    logger.error(str(CustomException("failed to generate chunks", e)))
+    return
 
 
