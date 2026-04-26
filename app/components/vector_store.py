@@ -29,3 +29,23 @@ def load_vector_store():
     logger.error(str(CustomException("failed to load vectorstore", e)))
     return
 
+
+
+def save_vector_store(chunks):
+  try:
+    if not chunks:
+      raise CustomException("chunks is empty")
+
+    logger.info("creating new vectorstore")
+
+    embedding_model = get_embedding_model()
+    db = FAISS.from_documents(chunks, embedding_model)
+
+    logger.info("saving vectorstore")
+
+    db.save_local(config["FAISS_PATH"])
+    return db
+
+  except Exception as e:
+    logger.error(str(CustomException("failed to save vectorstore", e)))
+    return
