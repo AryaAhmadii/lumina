@@ -10,3 +10,6 @@ setup(
     packages=find_packages(),
     install_requires = requirements,
 )
+
+
+# pip install -e .
