@@ -20,3 +20,6 @@ def process_store_pdfs():
   except Exception as e:
     logger.error(str(CustomException("failed to create vectorstore", e)))
 
+
+if __name__ == "__main__":
+  process_store_pdfs()
