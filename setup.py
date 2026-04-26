@@ -4,7 +4,7 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="Cliniq",
+    name="lumina",
     version="1",
     author="ARYA",
     packages=find_packages(),
