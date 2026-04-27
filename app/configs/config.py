@@ -12,16 +12,14 @@ Answer the following question less than 500 words.
 Just by using provided information from context.
 
 Context: 
-CONTEXT
+{CONTEXT}
 
 Question:
-QUESTION
+{QUESTION}
 
 Answer:
 """
 
-# Will replace CONTEXT word with real context and also QUESTION word with
-# real question in retriever before sending to LLM.
 
 def cnf():
   return {
