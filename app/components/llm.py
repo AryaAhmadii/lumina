@@ -1,4 +1,4 @@
-from langchain.llms import HuggingFaceHub
+from langchain_huggingface import HuggingFaceEndpoint
 
 from app.configs.config import cnf
 from app.common.logger import get_logger
@@ -11,13 +11,11 @@ def load_llm(hf_repo_id = config["HF_REPO_ID"], hf_token = config["HF_TOKEN"]):
   try:
     logger.info(f"loading LLM from {hf_repo_id}")
 
-    llm = HuggingFaceHub(
+    llm = HuggingFaceEndpoint(
       repo_id = hf_repo_id,
-      model_kwargs = {
-        "temperature": .4,
-        "max_length": 512,
-        "return_full_text": False,
-      },
+      temperature = .4,
+      max_length = 512,
+      return_full_text = False,
       huggingfacehub_api_token = hf_token
     )
 
