@@ -6,7 +6,7 @@ with open("requirements.txt") as f:
 setup(
     name="lumina",
     version="1",
-    author="ARYA",
+    author="dwrrio",
     packages=find_packages(),
     install_requires = requirements,
 )
