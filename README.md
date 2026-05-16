@@ -4,7 +4,7 @@
 ---
 
 
-# Lumina
+# MistralLLM-Rag-chatbot
 
 A RAG-based chatbot that lets you interact with your PDF documents using open-source LLMs. Upload your books or documents into the `books/` directory, and Lumina will index them into a FAISS vector store so you can ask questions and get context-aware answers — all running locally or in the cloud.
  
