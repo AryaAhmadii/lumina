@@ -27,7 +27,7 @@ Built with LangChain, Mistral-7B, FAISS, and Flask. Deployable via Docker and AW
  
 ## Overview
  
-Lumina uses a Retrieval-Augmented Generation (RAG) pipeline to answer questions grounded in your own documents. Place your PDF files in the `books/` directory before running the app. Lumina will chunk and embed them into a FAISS vector store, then use Mistral-7B (via HuggingFace) to generate answers at query time.
+This project uses a Retrieval-Augmented Generation (RAG) pipeline to answer questions grounded in your own documents. Place your PDF files in the `books/` directory before running the app. Lumina will chunk and embed them into a FAISS vector store, then use Mistral-7B (via HuggingFace) to generate answers at query time.
  
 The app exposes a Flask web interface running on port `5000`.
  
